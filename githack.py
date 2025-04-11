@@ -10,6 +10,7 @@ Usage::
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import hashlib, hmac, binascii, os
 import logging
+from pathlib import Path
 
 def hmac_sha256(msg):
     key = os.getenv('SECRET').encode('utf-8')
