@@ -30,7 +30,7 @@ class S(BaseHTTPRequestHandler):
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
         logging.info("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
                 str(self.path), str(self.headers), post_data.decode('utf-8'))
-        if hmac_sha256(post_data) == signature:
+        if self.path == '/githack' and hmac_sha256(post_data) == signature:
             logging.info("Valid signature")
             data = json.loads(post_data.decode('utf-8'))
             name = data['repository']['name']
