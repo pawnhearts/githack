@@ -11,6 +11,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import hashlib, hmac, binascii, os
 import logging
 from pathlib import Path
+import json
 
 def hmac_sha256(msg):
     key = os.getenv('SECRET').encode('utf-8')
