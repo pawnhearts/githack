@@ -33,7 +33,7 @@ class S(BaseHTTPRequestHandler):
             data = json.loads(post_data.decode('utf-8'))
             name = data['repository']['name']
             os.chdir(cwd / name)
-            os.system('just re')
+            os.system('./update.sh')
 
         self._set_response()
         self.wfile.write("POST request for {}".format(self.path).encode('utf-8'))
